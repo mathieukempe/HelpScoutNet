@@ -24,6 +24,11 @@ namespace HelpScoutNet.ConsoleClient
 
                 // 1. Conversations (включая все атрибуты)
                 var conversations = client.ListConversations(mailbox.Id);
+
+                foreach (var conversation in conversations.Items)
+                {
+                    Console.WriteLine("Converstation with Preview {0} and with Status {1} which Created By {2} {3}", conversation.Preview, conversation.Status, conversation.CreatedBy.FirstName, conversation.CreatedBy.LastName);
+                }
             }
 
             // 2. List of users (это кто от стороны компании отвечает на письма)
