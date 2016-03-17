@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HelpScoutNet.Model;
 using HelpScoutNet.Request;
 
 namespace HelpScoutNet.ConsoleClient
@@ -12,14 +13,13 @@ namespace HelpScoutNet.ConsoleClient
         static void Main(string[] args)
         {
             var client = new HelpScoutClient("a9fe3bcbef4d989dc7d05f1b8b1f90359a23d61f");
-            var customersSearch =
-                client.SearchCustomers(new SearchRequest { Query = "(customer:\"johnappleseed@gmail.com\")" });
-            foreach (var searchresult in customersSearch.Items)
+            var conversations = client.ListConversations();
+            foreach (var conversation in ConversationRequest.Id)
             {
-                Console.WriteLine(searchresult.FirstName + searchresult.LastName);
+                var mailboxId = 69294;
+                Console.WriteLine(Conversation.Owner, Conversation.Number, Conversation.thread);
+                Console.ReadKey();
             }
-
-            Console.ReadKey();
         }
     }
 }
