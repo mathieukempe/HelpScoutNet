@@ -20,6 +20,8 @@ namespace HelpScoutNet.ConsoleClient
 
             foreach (var mailbox in mailboxes.Items)
             {
+                Console.WriteLine(mailbox.Email);
+
                 // 1. Conversations (включая все атрибуты)
                 var conversations = client.ListConversations(mailbox.Id);
             }
@@ -27,7 +29,6 @@ namespace HelpScoutNet.ConsoleClient
             // 2. List of users (это кто от стороны компании отвечает на письма)
             var users = client.ListUsers();
 
-            Console.WriteLine(mailboxes.Items);
             Console.ReadKey();
         }
     }
