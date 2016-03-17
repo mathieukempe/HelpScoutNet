@@ -27,6 +27,7 @@ namespace HelpScoutNet.ConsoleClient
             // 2. List of users (это кто от стороны компании отвечает на письма)
             var users = client.ListUsers();
 
+            Console.WriteLine(mailboxes.Items);
             Console.ReadKey();
         }
     }
