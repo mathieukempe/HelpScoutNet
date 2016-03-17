@@ -13,13 +13,21 @@ namespace HelpScoutNet.ConsoleClient
         static void Main(string[] args)
         {
             var client = new HelpScoutClient("a9fe3bcbef4d989dc7d05f1b8b1f90359a23d61f");
-            var conversations = client.ListConversations();
-            foreach (var conversation in ConversationRequest.Id)
+
+
+            // 0. Get mailboxes
+            var mailboxes = client.ListMailboxes();
+
+            foreach (var mailbox in mailboxes.Items)
             {
-                var mailboxId = 69294;
-                Console.WriteLine(Conversation.Owner, Conversation.Number, Conversation.thread);
-                Console.ReadKey();
+                // 1. Conversations (включая все атрибуты)
+                var conversations = client.ListConversations(mailbox.Id);
             }
+
+            // 2. List of users (это кто от стороны компании отвечает на письма)
+            var users = client.ListUsers();
+
+            Console.ReadKey();
         }
     }
 }
