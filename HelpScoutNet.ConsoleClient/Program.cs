@@ -10,6 +10,7 @@ namespace HelpScoutNet.ConsoleClient
     {
         static void Main(string[] args)
         {
+            var client = new HelpScoutClient("api key");
         }
     }
 }
