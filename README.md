@@ -1,3 +1,27 @@
+#HelpScout API - Export mailbox and import into new account
+
+##Main Docs:
+List of APIs (official APIs are in Java and PHP) - http://developer.helpscout.net/help-desk-api/conversations/list/
+API in .NET - https://github.com/Selz/HelpScoutNet
+Examples of JSON Calls - http://developer.helpscout.net/help-desk-api/conversations/list/
+
+###Here's a rough outline:
+
+1. Export conversation history via API from old mailbox. Backup that data. (/zack-convos.json)
+2. Turn off forwarder from email client and delete old mailbox this deletion should free up the email address in our database so you can use it in your new account. (The client is EST business time and respond pretty quickly)
+3. Import conversation history into new account.
+
+* 17 Mar 
+    * Helpscout support used a convo export script and sent details of all the conversations from the old mailbox in json-format (zack-convos.json)
+* 18 Mar
+    * List of users (should be setted manually via the dashboard) - there 2 of them: support@dfwnerdherd.com and david@arawrpc.com
+    * List of customers/clients - the list of all customers doesn't contain all the customers in the conversations doc - so not sure they should be created manually.
+    * There is no way to use the same ID for any item - all the IDs will be created
+    * Looks like "createdAt", "closedAt" attributes are not working for Post Calls - it creates all the conversation using current date (I have notified client about it)
+    
+
+
+
 # HelpScoutNet
 HelpScoutNet is a .NET class library that provides an easy-to-use interface for the helpscout.net web api
 
