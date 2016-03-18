@@ -13,28 +13,122 @@ namespace HelpScoutNet.ConsoleClient
         static void Main(string[] args)
         {
             var client = new HelpScoutClient("a9fe3bcbef4d989dc7d05f1b8b1f90359a23d61f");
-
-
-            // 0. Get mailboxes
-            var mailboxes = client.ListMailboxes();
-
-            foreach (var mailbox in mailboxes.Items)
+            // Create new conversation
+            var newConv = client.CreateConversation(new Conversation
             {
-                Console.WriteLine(mailbox.Email);
-
-                // 1. Conversations (включая все атрибуты)
-                var conversations = client.ListConversations(mailbox.Id);
-
-                foreach (var conversation in conversations.Items)
+                // We get Owner info from the Users List
+                var users = client.ListUsers();
                 {
-                    Console.WriteLine("Converstation with Preview {0} and with Status {1} which Created By {2} {3}", conversation.Preview, conversation.Status, conversation.CreatedBy.FirstName, conversation.CreatedBy.LastName);
+                    public class Owner 
+                    {
+                        public int id { get; set; }
+                        public string firstName { get; set; }
+                        public string lastName { get; set; }
+                        public string email { get; set; }
+                        public object phone { get; set; }
+                        public string type { get; set; }
+                    }
                 }
-            }
 
-            // 2. List of users (это кто от стороны компании отвечает на письма)
-            var users = client.ListUsers();
+                // We get Mailbox info from the ListMailboxes
+                var mailboxes = client.ListMailboxes();
+                {
+                    public class Mailbox
+                    {
+                        public int id { get; set; }
+                        public string name { get; set; }
+                    }
+                }
 
-            Console.ReadKey();
+                // We get Customer info from the Customer List
+                var customer = client.ListCustomers();
+                {
+                    public class Customer
+                    {
+                        public int id { get; set; }
+                        public string firstName { get; set; }
+                        public string lastName { get; set; }
+                        public string email { get; set; }
+                        public object phone { get; set; }
+                        public string type { get; set; }
+                        public List<string> emails { get; set; }
+                    }
+                }
+
+                public class CreatedBy
+                {
+                    public int id { get; set; }
+                    public string firstName { get; set; }
+                    public string lastName { get; set; }
+                    public string email { get; set; }
+                    public object phone { get; set; }
+                    public string type { get; set; }
+                    public List<string> emails { get; set; }
+                }
+
+                public class Source
+                {
+                    public string type { get; set; }
+                    public string via { get; set; }
+                }
+
+                public class AssignedTo
+                {
+                    public int id { get; set; }
+                    public string firstName { get; set; }
+                    public string lastName { get; set; }
+                    public string email { get; set; }
+                    public object phone { get; set; }
+                    public string type { get; set; }
+                }
+
+                public class Thread
+                {
+                    public int id { get; set; }
+                    public string type { get; set; }
+                    public string AssignedTo { get; set; }
+                    public string status { get; set; }
+                    public string createdAt { get; set; }
+                    public object openedAt { get; set; }
+                    public object actionType { get; set; }
+                    public object actionSourceId { get; set; }
+                    public object fromMailbox { get; set; }
+                    public string state { get; set; }
+                    public object customer { get; set; }
+                    public string body { get; set; }
+                    public object to { get; set; }
+                    public List<object> cc { get; set; }
+                    public List<object> bcc { get; set; }
+                    public object attachments { get; set; }
+                    public int savedReplyId { get; set; }
+                    public bool createdByCustomer { get; set; }
+                }
+
+                public class Item
+                {
+                    public int id { get; set; }
+                    public string type { get; set; }
+                    public int folderId { get; set; }
+                    public bool isDraft { get; set; }
+                    public int number { get; set; }
+                    public string Owner { get; set; }
+                    public Mailbox { get; set; }
+                    public Customer { get; set; }
+                    public int threadCount { get; set; }
+                    public string status { get; set; }
+                    public string subject { get; set; }
+                    public string preview { get; set; }
+                    public string CreatedBy { get; set; }
+                    public string createdAt { get; set; }
+                    public string modifiedAt { get; set; }
+                    public object closedAt { get; set; }
+                    public object closedBy { get; set; }
+                    public Source { get; set; }
+                    public List<object> cc { get; set; }
+                    public List<object> bcc { get; set; }
+                    public object tags { get; set; }
+                    public List<Thread> threads { get; set; }
+                }
+        });
         }
-    }
 }
