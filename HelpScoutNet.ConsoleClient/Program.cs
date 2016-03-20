@@ -31,24 +31,27 @@ namespace HelpScoutNet.ConsoleClient
                 Status = ConversationStatus.active,
                 Customer = new Person
                 {
-                    Email = "mefa@sbcglobalabc.net",
+                    Id = 76490532
                 },
 
                 Threads = new List<Thread>{
                         new Thread
                         {
-                            Type = ThreadType.message,
+                            /* ThreadType can be note, message, chat, customer
+                            ThreadType.customer => PersonType.customer
+                            ThreadType.note => PersonType.user
+                            ThreadType.message => PersonType.user
+                            ThreadType.phone => PersonType.user
+                            */
+                            Type = ThreadType.customer,
                             Body = "Hey! How're you doing? When can I pickup my phone?",
                             Status = ThreadStatus.active,
                             CreatedBy = new Person
                             {
-                                // Customer is from our system. If we use ID of the user (112364) it will work.
-                                Id = 76391108,
+                                // We can use only Id and Type to identify the customer
+                                Id = 76490532,
                                 // It can be: user, customer
                                 Type = PersonType.customer,
-                                FirstName = "Azure",
-                                LastName = "Azure",
-                                Phone = "null"
                             }
                         },
                         new Thread
@@ -58,28 +61,19 @@ namespace HelpScoutNet.ConsoleClient
                             Status = ThreadStatus.active,
                             CreatedBy = new Person
                             {
-                                // User from our system
                                 Id = 112364,
                                 Type = PersonType.user,
-                                Email = "a@alinadev.com",
-                                FirstName = "Alice",
-                                LastName = "Jonson",
-                                Phone = "null"
                             }
                         },
                         new Thread
                         {
-                            Type = ThreadType.message,
+                            Type = ThreadType.customer,
                             Body = "Ok, thank you! Waiting for your updates",
                             Status = ThreadStatus.active,
                             CreatedBy = new Person
                             {
-                                // Customer is from our system. If we use ID of the user (112364) it will work.
-                                Id = 76391108,
+                                Id = 76490532,
                                 Type = PersonType.customer,
-                                FirstName = "Azure",
-                                LastName = "Azure",
-                                Phone = "null"                            
                             }
                         },
                         new Thread
@@ -89,13 +83,8 @@ namespace HelpScoutNet.ConsoleClient
                             Status = ThreadStatus.active,
                             CreatedBy = new Person
                             {
-                                // User from our system
                                 Id = 112364,
                                 Type = PersonType.user,
-                                Email = "a@alinadev.com",
-                                FirstName = "Alice",
-                                LastName = "Jonson",
-                                Phone = "null"
                             }
                         }
 
