@@ -1,0 +1,59 @@
+{
+  "page": 1,
+  "pages": 1,
+  "count": 4,
+  "items": [
+    {
+      "id": 61397,
+      "firstName": "David",
+      "lastName": "Flores",
+      "fullName": "David Flores",
+      "email": "david@arawrpc.com",
+      "role": "owner",
+      "timezone": "America/New_York",
+      "photoUrl": null,
+      "createdAt": "2015-02-09T20:52:36Z",
+      "modifiedAt": "2016-03-14T21:02:22Z",
+      "type": "user"
+    },
+    {
+      "id": 61430,
+      "firstName": "Terry",
+      "lastName": "Koehl",
+      "fullName": "Terry Koehl",
+      "email": "mail@accutechsupport.com",
+      "role": "user",
+      "timezone": "America/Los_Angeles",
+      "photoUrl": "https://d33v4339jhl8k0.cloudfront.net/users/61430.19577.png",
+      "createdAt": "2015-02-10T02:45:06Z",
+      "modifiedAt": "2016-03-17T05:23:55Z",
+      "type": "user"
+    },
+    {
+      "id": 61431,
+      "firstName": "Zack",
+      "lastName": "Stark",
+      "fullName": "Zack Stark",
+      "email": "support@dfwnerdherd.com",
+      "role": "user",
+      "timezone": "America/Chicago",
+      "photoUrl": "https://d33v4339jhl8k0.cloudfront.net/users/61431.23488.png",
+      "createdAt": "2015-02-10T02:46:08Z",
+      "modifiedAt": "2016-03-17T12:10:34Z",
+      "type": "user"
+    },
+    {
+      "id": 81412,
+      "firstName": "Mike",
+      "lastName": "Slodowski",
+      "fullName": "Mike Slodowski",
+      "email": "info@controlaltdeleterepair.com",
+      "role": "user",
+      "timezone": "America/New_York",
+      "photoUrl": null,
+      "createdAt": "2015-08-02T00:58:41Z",
+      "modifiedAt": "2016-03-16T16:52:32Z",
+      "type": "user"
+    }
+  ]
+}
