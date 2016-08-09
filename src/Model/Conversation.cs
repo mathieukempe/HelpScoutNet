@@ -46,7 +46,8 @@ namespace HelpScoutNet.Model
         emailfwd,
         api,
         chat,
-        workflows
+        workflows,
+        docs
     }
     
     public class Attachment
