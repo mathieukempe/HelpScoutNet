@@ -13,6 +13,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using HelpScoutNet.Request.Report;
 using System.Threading.Tasks;
+using System.Net;
 
 namespace HelpScoutNet
 {
@@ -559,6 +560,8 @@ namespace HelpScoutNet
 
         private HttpClient InitHttpClient()
         {
+            ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic",
                 Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes(string.Format("{0}:{1}", _apiKey, "X"))));
