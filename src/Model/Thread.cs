@@ -9,7 +9,7 @@ namespace HelpScoutNet.Model
 {
     public class Thread
     {
-        public int Id { get; set; }
+        public double Id { get; set; }
         public Person AssignedTo { get; set; }
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Include)]
         public ThreadStatus Status { get; set; }
