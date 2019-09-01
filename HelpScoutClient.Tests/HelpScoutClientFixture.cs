@@ -1,9 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Bogus;
+using HelpScout.Conversations.Threads.Models.Create;
 using HelpScout.Customers;
 using Xunit;
 using Xunit.Abstractions;
@@ -60,7 +64,14 @@ namespace HelpScout.Tests
                         Customer = new ConversationCreate.CreateConservationThreadCustomer
                         {
                             Email = "arjuns@selz.com"
+                        },
+                        Attachments = new List<Attachment>
+                        {
+                            GetAttachment().Result,
+                            GetAttachment().Result
                         }
+                        
+                        
                     }
                 }
             };
@@ -91,7 +102,21 @@ namespace HelpScout.Tests
             };
         }
 
+        private async Task<Attachment> GetAttachment()
+        {
+            var picsumUrl = Faker.Image.PicsumUrl();
+            var httpClient = new HttpClient();
+            var response = await httpClient.GetAsync(picsumUrl);
 
+            var ms = new MemoryStream();
+            await response.Content.CopyToAsync(ms);
+            return new Attachment
+            {
+                FileName = Faker.System.FileName(),
+                MimeType = response.Content.Headers.GetValues("Content-Type").FirstOrDefault(),
+                Data = Convert.ToBase64String(ms.ToArray())
+            };
+        }
 
     }
 }
