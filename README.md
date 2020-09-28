@@ -1,4 +1,5 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/yoxiw6cx9ehbgf66?svg=true)](https://ci.appveyor.com/project/SelzEngineer/helpscout)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FSelz%2FHelpScoutNet.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FSelz%2FHelpScoutNet?ref=badge_shield)
 
 
 
@@ -139,3 +140,7 @@ await threadEndpoint.CreateCustomerThread(customerThread,customerId);
 
   
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FSelz%2FHelpScoutNet.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FSelz%2FHelpScoutNet?ref=badge_large)
